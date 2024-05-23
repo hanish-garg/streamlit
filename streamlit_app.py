@@ -11,13 +11,16 @@ DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
 @st.cache_data
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
+    st.text(data)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
     data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
     return data
+
 st.text("this is great")
 data_load_state = st.text('Loading data...')
 data = load_data(10000)
+
 st.text(data)
 data_load_state.text("Done! (using st.cache_data)")
 

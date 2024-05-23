@@ -19,8 +19,7 @@ def load_data(nrows):
     st.text("reading data again and again")
     st.text(data)
     return data
-    st.text("reading again and again")
-    st.text(data)
+
 
 st.text("this is great")
 data_load_state = st.text('Loading data...')
